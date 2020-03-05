@@ -44,30 +44,4 @@ Most of the paths are customizable using environment variables, but by default t
 
 ## Docker Compose Example
 
-```yaml
-version: '3.2'
-services:
-  contaloupe:
-    container_name: cantaloupe
-    image: lyrasis/cantaloupe:latest
-    ports:
-        - "8182:8182"
-    environment:
-        ENDPOINT_ADMIN_ENABLED: "false"
-        PRINT_STACK_TRACE_ON_ERROR_PAGES: "false"
-        ENDPOINT_IIIF_1_ENABLED: "false"
-        ENDPOINT_IIIF_2_ENABLED: "true"
-        ENDPOINT_API_ENABLED: "false"
-        CACHE_SERVER_TTL_SECONDS: "1296000"
-        CACHE_SERVER_WORKER_INTERVAL: "3600"
-        HTTPRESOLVER_REQUEST_TIMEOUT: "60"
-        RESOLVER_STATIC: "HttpResolver"
-        HTTPRESOLVER_BASICLOOKUPSTRATEGY_URL_PREFIX: ""
-        HTTPRESOLVER_BASICLOOKUPSTRATEGY_URL_SUFFIX: ""
-        CACHE_SERVER_SOURCE_ENABLED: "true"
-        CACHE_SERVER_DERIVATIVE_ENABLED: "true"
-        CACHE_SERVER_DERIVATIVE: "FilesystemCache"
-        JAVA_OPTS: "-Xmx2g"
-        PROCESSOR_JP2: "OpenJpegProcessor"
-    restart: always
-```
+See `docker-compose.yml`. 
