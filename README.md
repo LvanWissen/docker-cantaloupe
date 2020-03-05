@@ -1,6 +1,8 @@
 # Docker-Cantaloupe
 
-Provides a basic docker container for 🍈 with all the image tools installed. Based on the [Ubuntu 16.04 image](https://hub.docker.com/_/ubuntu/).
+Forked from: https://github.com/lyrasis/docker-cantaloupe/
+
+Provides a basic docker container for 🍈 with all the image tools installed. Based on the [Ubuntu 18.04 image](https://hub.docker.com/_/ubuntu/).
 
 ## Environment Variables
 

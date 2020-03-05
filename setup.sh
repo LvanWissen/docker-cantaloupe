@@ -1,9 +1,9 @@
 #!/bin/bash
 
-MYSQL_LIB_VERSION=5.1.44
-CANTALOUPE_VERSION=4.0
-GOSU_VERSION=1.10
-OPENJPEG_VERSION=2.3.0
+MYSQL_LIB_VERSION=8.0.19
+CANTALOUPE_VERSION=4.1.5
+GOSU_VERSION=1.11
+OPENJPEG_VERSION=2.3.1
 
 export DEBIAN_FRONTEND=noninteractive
 export TERM=linux
@@ -44,8 +44,9 @@ mkdir /cantaloupe/logs
 mkdir /cantaloupe/images
 
 # Download Cantaloupe
-wget -q http://central.maven.org/maven2/mysql/mysql-connector-java/$MYSQL_LIB_VERSION/mysql-connector-java-$MYSQL_LIB_VERSION.jar -O /cantaloupe/lib/mysql-connector.jar
-wget -q https://github.com/medusa-project/cantaloupe/releases/download/v$CANTALOUPE_VERSION/Cantaloupe-$CANTALOUPE_VERSION.zip -O /cantaloupe/cantaloupe.zip
+
+wget -q https://repo1.maven.org/maven2/mysql/mysql-connector-java/$MYSQL_LIB_VERSION/mysql-connector-java-$MYSQL_LIB_VERSION.jar -O /cantaloupe/lib/mysql-connector.jar
+wget -q https://github.com/cantaloupe-project/cantaloupe/releases/download/v$CANTALOUPE_VERSION/cantaloupe-$CANTALOUPE_VERSION.zip -O /cantaloupe/cantaloupe.zip
 unzip /cantaloupe/cantaloupe.zip -d /cantaloupe
 mv /cantaloupe/cantaloupe-$CANTALOUPE_VERSION/cantaloupe-$CANTALOUPE_VERSION.war /cantaloupe/cantaloupe.war
 mv /cantaloupe/cantaloupe-$CANTALOUPE_VERSION/delegates.rb.sample /cantaloupe/delegates.rb
