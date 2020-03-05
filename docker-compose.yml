@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  cantaloupe:
+    image: lyrasis/cantaloupe:latest
+    volumes:
+      - ./cantaloupe/images:/cantaloupe/images
+      - ./cantaloupe/images/cache:/cantaloupe/cache
+      - ./cantaloupe/logs:/cantaloupe/logs
+    ports:
+        - "8182:8182"
+    environment:
+        ENDPOINT_ADMIN_ENABLED: "false"
+        PRINT_STACK_TRACE_ON_ERROR_PAGES: "false"
+        ENDPOINT_IIIF_1_ENABLED: "false"
+        ENDPOINT_IIIF_2_ENABLED: "true"
+        ENDPOINT_API_ENABLED: "false"
+        CACHE_SERVER_TTL_SECONDS: "1296000"
+        CACHE_SERVER_WORKER_INTERVAL: "3600"
+        HTTPRESOLVER_REQUEST_TIMEOUT: "60"
+        RESOLVER_STATIC: "HttpResolver"
+        HTTPRESOLVER_BASICLOOKUPSTRATEGY_URL_PREFIX: ""
+        HTTPRESOLVER_BASICLOOKUPSTRATEGY_URL_SUFFIX: ""
+        FILESYSTEMSOURCE_BASICLOOKUPSTRATEGY_PATH_PREFIX: "/cantaloupe/images/"
+        CACHE_SERVER_SOURCE_ENABLED: "true"
+        CACHE_SERVER_DERIVATIVE_ENABLED: "true"
+        CACHE_SERVER_DERIVATIVE: "FilesystemCache"
+        JAVA_OPTS: "-Xmx16g"
+        PROCESSOR_JP2: "OpenJpegProcessor"
+        FILESYSTEMCACHE_PATHNAME: "/cantaloupe/cache"
+        HEAPCACHE_PERSIST_FILESYSTEM_PATHNAME: "/cantaloupe/cache/heap.cache"
+        HEAPCACHE_TARGET_SIZE: "4G"
+        SLASH_SUBSTITUTE: "-"
+    restart: unless-stopped
+    
+
